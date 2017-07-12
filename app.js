@@ -27,7 +27,10 @@ app.use(express.static(__dirname + '/public'));
 app.use(methodOverride('_method'));
 app.use(flash());
 
-mongoose.connect('mongodb://localhost/restaurants');
+mongoose.connect('mongodb://savalazic:savalazic@ds155582.mlab.com:55582/restaurantsapp');
+// mongoose.connect('mongodb://localhost/restaurants');
+
+// mongodb://savalazic:savalazic@ds155582.mlab.com:55582/restaurantsapp
 
 // PASSPORT config
 app.use(require('express-session')({
