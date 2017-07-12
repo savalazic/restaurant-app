@@ -1,0 +1,59 @@
+.restaurant-header
+  position relative
+  margin-bottom 100px
+  
+  h1
+    position absolute
+    top 50%
+    transform translateY(-50%)
+    font-size 60px
+    color $white
+    margin 0 
+
+    @media (max-width: $mobile)
+      font-size 40px
+
+
+  .bg-image
+    padding 250px 0
+    background-size cover
+    height 100%
+    background-repeat no-repeat
+    background-position center center
+
+    &::after
+      content ''
+      background rgba($black, .6)
+      position absolute
+      top 0
+      left 0
+      bottom 0
+      right 0
+
+.restaurant-desc
+  margin-top 50px
+  margin-bottom 100px
+
+  em
+    display block
+    margin-top 50px
+
+.desc-item
+  i
+    font-size 22px
+    vertical-align middle
+    margin-right 5px
+
+  span
+    font-size 16px
+    vertical-align middle
+
+.comment-item
+  .author
+    font-size 20px
+
+  .text
+    margin-top 10px
+
+  .date
+    font-weight 200

@@ -1,0 +1,59 @@
+/**
+ * Body Styles
+ * -----------
+ * Main / General body styles.
+ */
+
+html, body
+  overflow-x hidden !important
+
+body
+  font-family $english
+  font-style  normal
+  font-size $font-size
+  font-weight 400
+  color $text
+  position relative
+
+  animation fadeInBody 1000ms forwards
+  
+
+  // animate fadeBody 2000ms forwards, \
+  //     0% opacity(0), \
+  //     100% opacity(1)
+  
+  @keyframes fadeInBody
+    0%
+      opacity 0
+    100%
+      opacity 1
+
+  &[data-loaded='true']
+    .loader
+      opacity 0
+
+  // antialias() // antialias fonts
+
+/**
+ * Customize selection color.
+ */
+// ::selection
+//   background transparent($primary, 0.1)
+
+/**
+ * Remove tap highlight color (iOS)
+ * from all elements on site.
+ */
+*
+  -webkit-tap-highlight-color transparent
+
+/**
+ * Remove user-select from
+ * from clickable elements.
+ */
+img, a, .button, .link
+  user-select none
+
+img
+  width 100%
+  max-width 100%

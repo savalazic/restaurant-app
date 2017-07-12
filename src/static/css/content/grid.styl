@@ -1,0 +1,28 @@
+.grid
+  overflow hidden !important
+  padding 100px 0
+
+  .item
+    width calc(33% - 16px)
+    padding 15px
+    position relative
+    
+    .card
+      opacity 0
+
+      &.is-visible
+        animation cardIn 600ms ease-in forwards
+
+    @media (max-width: 1200px)
+      width calc(50% - 16px) 
+
+    @media (max-width: 1000px)
+      width 100%
+
+@keyframes cardIn
+  0%
+    opacity 0
+    transform translateY(50px)
+  100%
+    opacity 1
+    transform translateY(0)

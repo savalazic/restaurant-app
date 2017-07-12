@@ -1,0 +1,39 @@
+.landing-wrapper
+  background linear-gradient(rgba($black, .7), rgba($black, .7)), url('https://images.pexels.com/photos/213661/pexels-photo-213661.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb') no-repeat center center
+  background-size cover
+  height calc(100vh - 70px)
+  width 100vw
+  display table-cell
+  vertical-align middle
+
+  animation fadeInBody 3000ms forwards
+
+  @keyframes fadeInBody
+    0%
+      opacity 0
+    100%
+      opacity 1
+
+
+  .container  
+    animation animateHeading 2000ms forwards
+
+    @keyframes animateHeading
+      0%
+        opacity 0
+        transform translateY(-30px)
+      100%
+        opacity 1
+        transform translateY(0)
+
+  h1
+    font-size 60px
+    color $white
+    letter-spacing 4px
+    max-width 500px
+    margin-bottom 35px
+
+    @media (max-width: $mobile)
+      font-size 30px
+
+    

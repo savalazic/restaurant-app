@@ -1,0 +1,95 @@
+<% include ../partials/header %>
+
+<div class='restaurant-header'>
+  <div class='bg-image' style='background-image: url("<%= restaurant.image %>")'></div>
+  <div class='container'>
+    <h1><%= restaurant.name %></h1>
+    
+  </div>
+</div>
+
+<div class='container'>
+
+  <div class='row'>
+
+    <div class='desc-item col-sm-3'>
+      <p>Radno vreme:</p>
+      <i class='ion-clock'></i>
+      <span><%= restaurant.workingTime %></span>
+    </div>
+
+    <div class='desc-item col-sm-3'>
+      <p>Adresa:</p>
+      <i class='ion-location'></i>
+      <span><%= restaurant.address %></span>
+    </div>
+
+    <div class='desc-item col-sm-3'>
+      <p>Broj telefona:</p>
+      <i class='ion-ios-telephone'></i>
+      <a href='tel:<%= restaurant.phone %>'><%= restaurant.phone %></a>
+    </div>
+    
+    <div class='desc-item col-sm-3'>
+      <p>E-mail:</p>
+      <i class='ion-email'></i>
+      <a href='mailto:<%= restaurant.email %>'><%= restaurant.email %></a>
+    </div>
+
+    <div class='col-sm-12'>
+      <div class='restaurant-desc'>
+      
+        <h3>Opis</h3>
+        <p><%= restaurant.description %></p>
+        <p><em>Submited by <%= restaurant.author.username %></em></p>
+
+        <% if(currentUser && restaurant.author.id.equals(currentUser._id)){ %>
+          <a class='btn btn-warning btn-xs' href='/restaurants/<%= restaurant._id %>/edit'>Edit</a>
+          <form class='btn-form' action='/restaurants/<%= restaurant._id %>?_method=DELETE' method='POST'>
+            <button class='btn btn-danger btn-xs'>Delete</button>
+          </form>
+        <% } %>
+      
+      </div>
+
+      <div class='well'>
+        <% if (restaurant.comments.length === 1) { %>
+          <p><%= restaurant.comments.length %> komentar</p>
+        <% } else { %>
+          <p><%= restaurant.comments.length %> komentara</p>
+        <% } %>
+
+        <div class='text-right'>
+          <a class='btn btn-success' href='/restaurants/<%= restaurant._id %>/comments/new'>Add new comment</a>
+        </div>
+
+        <% restaurant.comments.forEach(function(comment){ %>
+          <hr />
+          <div class='row'>
+            <div class='col-md-12 comment-item'>
+              <span class='author'><%= comment.author.username %></span>
+              <span class='date pull-right'>Posted on <%= comment.created.toDateString() %></span>
+              <p class='text'><%= comment.text %></p>
+              <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+
+                <a class='btn btn-xs btn-warning' href='/restaurants/<%= restaurant._id %>/comments/<%= comment._id %>/edit'>Edit</a>
+                <form class='btn-form' action='/restaurants/<%= restaurant._id %>/comments/<%= comment._id %>?_method=DELETE' method='POST'>
+                  <button class='btn btn-xs btn-danger'>Delete</button>
+                </form>
+
+              <% } %>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+
+      
+
+    </div>
+
+
+    </div>
+  </div>
+</div>
+
+<% include ../partials/footer %>

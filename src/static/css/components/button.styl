@@ -1,0 +1,24 @@
+.btn
+  border none
+  border-radius 3px
+  transition all 500ms
+  letter-spacing 2px
+  color $white
+  padding 15px 30px
+  outline none
+
+  &.btn-xs
+    padding 8px 15px
+
+  &:hover,
+  &:active,
+  &:focus
+    color $white
+
+  &.primary
+    background $primary
+    
+    &:hover,
+    &:active,
+    &:focus
+      background darken($primary, 10%)

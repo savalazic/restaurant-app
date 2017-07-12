@@ -1,0 +1,39 @@
+<% include ../partials/header %>
+
+<header class='restaurants-header'>
+  <div class='container'>
+    <h1>Welcome To Find.Eat.Drink.Repeat</h1>
+    <p>View the best restaurants from all over the world</p>
+    <a class='btn primary btn-lg' href='/restaurants/new'>Add New Restaurant</a>
+  
+  </div>
+</header>
+
+<div class='container'>
+  
+
+  <div class='row grid'>
+
+    <% restaurants.forEach(function(restaurant) { %>
+      <div class='text-center item'>
+        <div class='card'>
+          <a href='/restaurants/<%= restaurant._id %>'>
+
+            <img class='img-responsive' src='<%= restaurant.image %>' alt='' />
+            
+            <div class='card-text'>
+              <h3><%= restaurant.name %></h3>
+            </div>
+          
+          </a>
+
+        </div>
+      </div>
+    <% }) %>
+
+  </div>
+
+</div>
+
+
+<% include ../partials/footer %>
