@@ -18,7 +18,7 @@ Getting up and running is as easy as 1, 2, 3.
   ```bash
   node app.js
   ```
-Now aplication is visible on localhost:3000
+Now application is visible on localhost:3000
 
 ## License
 
